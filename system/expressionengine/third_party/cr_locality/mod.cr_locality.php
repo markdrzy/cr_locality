@@ -11,7 +11,7 @@ class Cr_locality {
 	
 	function locate_user()
 	{
-		return '<script src="'.PATH_THEMES.'/third_party/cr_locality/js/cr_locality.js"></script>';
+		return '<script>'.file_get_contents(PATH_THIRD.'cr_locality/javascript/cr_locality.js').'</script>';
 	}
 
 }
