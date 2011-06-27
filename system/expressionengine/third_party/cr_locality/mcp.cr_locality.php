@@ -12,7 +12,7 @@ class Cr_locality_mcp {
 	function __construct()
 	{
 		$this->EE =& get_instance();
-		$this->cr_locality = new Cr_locality_mod();
+		$this->cr_locality = new Cr_locality();
 	}
 
 }
