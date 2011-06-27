@@ -7,7 +7,7 @@ $x = simplexml_load_file($g);
 
 foreach ($x->result->address_component as $c)
 {
-	switch ($c)
+	switch ($c->type)
 	{
 		case 'street_address':
 			$d['precise_address'] = $c->long_name;
