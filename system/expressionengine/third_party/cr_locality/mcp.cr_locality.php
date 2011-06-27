@@ -14,6 +14,19 @@ class Cr_locality_mcp {
 		$this->EE =& get_instance();
 		$this->cr_locality = new Cr_locality();
 	}
+	
+	function index()
+	{
+		$this->EE->load->library('javascript');
+		$this->EE->load->library('table');
+		$this->EE->load->helper('form');
+		
+		$this->EE->cp->set_variable('cp_page_title',$this->EE->lang->line('cr_locality_module_name'));
+		
+		$data = array();
+		
+		$this->EE->load->view('index',$data,TRUE);
+	}
 
 }
 
