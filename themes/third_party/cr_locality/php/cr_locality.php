@@ -23,3 +23,4 @@ $d['directional_heading'] = htmlentities(htmlspecialchars(strip_tags($_GET['head
 $d['speed'] = htmlentities(htmlspecialchars(strip_tags($_GET['speed'])));
 $d['google_api_src'] = $g;
 
+die(json_encode($d));
