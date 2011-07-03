@@ -13,6 +13,7 @@ class Cr_locality_upd {
 	
 	function install()
 	{
+		// Create Module
 		$data = array(
 			'module_name'			=> $this->modname,
 			'module_version'		=> $this->version,
@@ -20,6 +21,13 @@ class Cr_locality_upd {
 			'has_publish_fields'	=> 'n'
 		);
 		$this->EE->db->insert('modules',$data);
+		
+		// Create Actions
+		$actions = array(
+			'class'		=> $this->modname,
+			'method'	=> 'get_geo'
+		);
+		$this->EE->db->insert('actions', $actions);
 		
 		return TRUE;
 	}
@@ -31,6 +39,11 @@ class Cr_locality_upd {
 	
 	function uninstall()
 	{
+		// Delete Actions
+		$this->EE->db->where('class',$this->modname);
+		$this->EE->db->delete('actions');
+		
+		// Delete Module
 		$this->EE->db->select('module_id');
 		$query = $this->EE->db->get_where('modules',array('module_name'=>$this->modname));
 		$this->EE->db->where('module_id',$query->row('module_id'));

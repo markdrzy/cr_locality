@@ -13,7 +13,7 @@ class Cr_locality {
 		$this->EE =& get_instance();
 	}
 	
-	function locate_user()
+	function get_geo()
 	{
 		$out_settings = array();
 		foreach ($this->settings as $k => $v)
