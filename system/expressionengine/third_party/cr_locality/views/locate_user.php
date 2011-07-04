@@ -25,7 +25,7 @@
 		
 	}
 	
-	var crLocalityZip = undefined;// jQuery.cookie('cr_locality_zip');
+	var crLocalityZip = jQuery.cookie('cr_locality_zip');
 	
 	if (navigator.geolocation && crLocalityZip == undefined)
 	{

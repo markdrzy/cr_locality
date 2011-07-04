@@ -4,8 +4,8 @@ class Cr_locality {
 
 	var $return_data = '';
 	var $settings = array(
-		'expires'	=> '1',
-		'domain'	=> 'igrow.clickrain.com'
+		'expires'	=> '',
+		'domain'	=> ''
 		);
 	var $modname		= 'Cr_locality';
 	var $short_modname	= 'cr_locality';
