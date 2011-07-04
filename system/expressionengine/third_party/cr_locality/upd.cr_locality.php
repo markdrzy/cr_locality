@@ -2,7 +2,7 @@
 
 class Cr_locality_upd {
 
-	var $version = '0.1';
+	var $version = '0.2';
 	var $modname = 'Cr_locality';
 	var $short_modname = 'cr_locality';
 	
