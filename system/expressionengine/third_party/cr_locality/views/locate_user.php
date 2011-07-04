@@ -17,6 +17,7 @@
 		$.getJSON('/index.php?ACT=<?=$act_id?>&latlng=' + c.latitude + ',' + c.longitude,function(d){
 			jQuery.cookie('cr_locality_zip',d.postal_code,0.25);
 		});
+		<? if(isset($callback_method)): ?><?=$callback_method?>;<? else: ?>// No Callback<? endif; ?><?=NL?>
 	}
 	
 	function denyGeo()
@@ -24,11 +25,15 @@
 		
 	}
 	
-	var cr_locality_zip = jQuery.cookie('cr_locality_zip');
+	var crLocalityZip = undefined;// jQuery.cookie('cr_locality_zip');
 	
-	if (navigator.geolocation && cr_locality_zip === null)
+	if (navigator.geolocation && crLocalityZip == undefined)
 	{
 		navigator.geolocation.getCurrentPosition(getGeo,denyGeo);
+	}
+	else if (crLocalityZip !== undefined)
+	{
+		<? if(isset($callback_method)): ?><?=$callback_method?>;<? else: ?>// No Callback<? endif; ?><?=NL?>
 	}
 
 </script>

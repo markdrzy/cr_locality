@@ -40,13 +40,20 @@ class Cr_locality {
 	
 	function locate_user()
 	{
+		// Create View Data Array
+		$data = array();
+		
 		// Get get_geo() action id
 		$this->EE->db->select('action_id');
 		$aq = $this->EE->db->get_where('actions',array('class'=>$this->modname,'method'=>'get_geo'));
+		$data['act_id'] = $aq->row('action_id');
 		
-		$data = array(
-			'act_id'	=> $aq->row('action_id')
-		);
+		// Set Callback
+		if (($cb = $this->EE->TMPL->fetch_param('callback')) !== FALSE)
+		{
+			$data['callback_method'] = 'if (typeof '.$cb.' == \'function\') { '.$cb.'(); }';
+		}
+		
 		return $this->EE->load->view('locate_user',$data,TRUE);
 	}
 
