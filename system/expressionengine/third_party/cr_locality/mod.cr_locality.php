@@ -48,6 +48,12 @@ class Cr_locality {
 		$aq = $this->EE->db->get_where('actions',array('class'=>$this->modname,'method'=>'get_geo'));
 		$data['act_id'] = $aq->row('action_id');
 		
+		// Set Default Locale
+		if (($dz = $this->EE->TMPL->fetch_param('default_zip')) !== FALSE)
+		{
+			$data['default_zip'] = $dz;
+		}
+		
 		// Set Callback
 		if (($cb = $this->EE->TMPL->fetch_param('callback')) !== FALSE)
 		{

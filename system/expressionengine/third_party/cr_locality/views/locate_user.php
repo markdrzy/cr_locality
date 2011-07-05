@@ -15,13 +15,14 @@
 		var c = p.coords;
 		$.getJSON('/index.php?ACT=<?=$act_id?>&latlng=' + c.latitude + ',' + c.longitude,function(d){
 			jQuery.cookie('cr_locality_zip',d.postal_code,0.25);
+			<? if(isset($callback_method)): ?><?=$callback_method?>;<? else: ?>// No Callback<? endif; ?><?=NL?>
 		});
-		<? if(isset($callback_method)): ?><?=$callback_method?>;<? else: ?>// No Callback<? endif; ?><?=NL?>
 	}
 	
 	function denyGeo()
 	{
-		
+		jQuery.cookie('cr_locality_zip','<? if(isset($default_locale)): ?><?=$default_locale?><? else: ?>57007<? endif; ?>',0.25);
+		<? if(isset($callback_method)): ?><?=$callback_method?>;<? else: ?>// No Callback<? endif; ?><?=NL?>
 	}
 	
 	var crLocalityZip = jQuery.cookie('cr_locality_zip');
@@ -33,6 +34,10 @@
 	else if (crLocalityZip !== undefined)
 	{
 		<? if(isset($callback_method)): ?><?=$callback_method?>;<? else: ?>// No Callback<? endif; ?><?=NL?>
+	}
+	else
+	{
+		denyGeo();
 	}
 
 </script>
