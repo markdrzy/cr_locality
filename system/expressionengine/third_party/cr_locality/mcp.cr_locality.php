@@ -25,7 +25,7 @@ class Cr_locality_mcp {
 		
 		$data = array();
 		
-		$this->EE->load->view('index',$data,TRUE);
+		return $this->EE->load->view('index',$data,TRUE);
 	}
 
 }

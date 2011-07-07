@@ -4,8 +4,9 @@ class Cr_locality {
 
 	var $return_data = '';
 	var $settings = array(
-		'expires'	=> '',
-		'domain'	=> ''
+		'def_zip'		=> '',
+		'cook_expires'	=> '',
+		'cook_domain'	=> ''
 		);
 	var $modname		= 'Cr_locality';
 	var $short_modname	= 'cr_locality';
